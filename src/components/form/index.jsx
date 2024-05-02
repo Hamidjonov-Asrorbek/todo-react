@@ -33,7 +33,7 @@ export default function Form(){
       time: getTime(),
     }
     setTodos((prev) => [...prev, newTodo]);
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.getItem("todos", JSON.stringify(todos));
     setText('');
   }
 
@@ -42,7 +42,7 @@ export default function Form(){
   // delete todo
   function deleteTodo(todoId){
     setTodos((prev) => prev.filter((todo) => todo.id !== todoId))
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.getItem("todos", JSON.stringify(todos));
   }
   // ****************
   
@@ -64,7 +64,7 @@ export default function Form(){
     <div className="mb-3">
       <input
         onChange={(e) =>{
-          setText(e.target.value);
+          setText(e.target.value.trim());
         }}
         value={text}
         id="inputCreate"

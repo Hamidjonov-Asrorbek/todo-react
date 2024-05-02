@@ -43,7 +43,7 @@ export default function Modal({closeModal, itemId, itemText, setTodos}){
               placeholder="Type todo..."
               required
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={(e) => setText(e.target.value.trim())}
             />
             <span id="message-edit" className="text-danger"></span>
           </div>
