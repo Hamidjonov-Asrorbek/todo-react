@@ -68,7 +68,7 @@ export default function Form(){
                         <img src={del} onClick={() => {deleteTodo(id)}} width='25' alt="delete"/>
                     </div>
                   </li>
-                 }): "No todos :)"};
+                 }): "No todos :)"}
                  {/* **************** */}
   </ul>
   </>)
