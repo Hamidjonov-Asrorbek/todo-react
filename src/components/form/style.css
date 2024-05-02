@@ -16,3 +16,6 @@
   #add_btn{
     margin-left: auto;
   }
+  .todo_left{
+    gap: 30px;
+  }
