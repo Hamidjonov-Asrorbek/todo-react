@@ -23,6 +23,7 @@ export default function Modal({closeModal, itemId, itemText, setTodos}){
     }
 
     return (
+      <>
     <div id="modal" className="modal-todo hidden">
         <div className="card">
       <div
@@ -53,5 +54,8 @@ export default function Modal({closeModal, itemId, itemText, setTodos}){
         </form>
       </div>
     </div>
-  </div>)
+  </div>
+  <div id="overlay" class="overlay hidden"></div>
+</>  
+)
 }

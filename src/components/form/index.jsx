@@ -7,11 +7,13 @@ import './style.css'
 
 
 export default function Form(){
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) ?? []);
   const [text, setText] = useState("");
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
  }, [todos]);
+
   const [modal, setModal] = useState({
     show: false,
     todoId: "",
@@ -33,7 +35,6 @@ export default function Form(){
       time: getTime(),
     }
     setTodos((prev) => [...prev, newTodo]);
-    localStorage.getItem("todos", JSON.stringify(todos));
     setText('');
   }
 
@@ -42,8 +43,7 @@ export default function Form(){
   // delete todo
   function deleteTodo(todoId){
     setTodos((prev) => prev.filter((todo) => todo.id !== todoId))
-    localStorage.getItem("todos", JSON.stringify(todos));
-  }
+  };
   // ****************
   
   // time
@@ -64,9 +64,9 @@ export default function Form(){
     <div className="mb-3">
       <input
         onChange={(e) =>{
-          setText(e.target.value.trim());
+          setText(e.target.value);
         }}
-        value={text}
+        value = {text}
         id="inputCreate"
         type="text"
         className="mb-1 form-control"
